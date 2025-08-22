@@ -15,4 +15,5 @@ public class $268_MissingNumber {
         }
         return (nums.length * (nums.length + 1) / 2) - sum;
     }
+
 }

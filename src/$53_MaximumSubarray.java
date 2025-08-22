@@ -1,21 +1,14 @@
-public class $53_MaximumSubarray {
-    public static void main(String[] args) {
-        int[] nums = {-2,-1};
-        System.out.println(maxSubArray(nums));
+public static void main() {
+    int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    System.out.println(maxSubArray(nums));
+}
+
+public static int maxSubArray(int[] nums) {
+    int maxSum = nums[0];
+    int currentSum = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+        currentSum = Math.max(currentSum + nums[i], nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
     }
-    
-    public static int maxSubArray(int[] nums) {
-        if (nums.length > 0) {
-            int result = nums[0];
-            for (int i = 0; i < nums.length - 1; i++) {
-                int sum = nums[i];
-                for (int j = i + 1; j < nums.length; j++) {
-                    sum += nums[j];
-                    result = Math.max(result, Math.max(sum, nums[i]));
-                }
-            }
-            return Math.max(result, nums[nums.length - 1]);
-        }
-        return nums[0];
-    }
+    return maxSum;
 }
